@@ -67,6 +67,8 @@ Demo of the functionality of buttons for saving and clearing all tasks.
 <br><br>
 
 ## Credit: References and Tutorials Utilized
+* [YouTube Tutorial](https://www.youtube.com/watch?v=QEu8_5bYm-w): Utilized this video to understand how to edit the URL for api call so it looks for specific city.
+* [Search Medium](https://medium.com/@ecastille924/write-a-dynamic-fetch-call-with-concat-c523d6b11593): How to construct a dyamic fetch.
 * [OpenWeather](https://openweathermap.org/forecast5): Utilized API to call weather data
 * [jQuery](https://jquery.com/): Several tutorials for jQuery methods
 * [w3schools](https://www.w3schools.com/): Several tutorials for JavaScript tutorials

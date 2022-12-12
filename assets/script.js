@@ -5,15 +5,50 @@ $('#day3').text(((dayjs()).add(3,'day')).format('ddd, MMM D'));
 $('#day4').text(((dayjs()).add(4,'day')).format('ddd, MMM D'));
 $('#day5').text(((dayjs()).add(5,'day')).format('ddd, MMM D'));
 
-var userInputEl = $('.userInput');
 
 
 $('.searchBtn').click(function (e) { 
     e.preventDefault();
-    console.log(userInputEl);
+    fetchCity();
 });
 
+function fetchCity() {
+    var userInputEl = $('.userInput').val();
+    $('#currentCity').text(userInputEl);
 
+    var appUrl = "http://api.openweathermap.org/geo/1.0/direct?appid=f0688e2fdade5250b4d094a2c4d7d063&q=";
+    var inputUrl = appUrl.concat(userInputEl);
+
+    fetch(inputUrl) // Fetch the lat and long of the city searched 
+        .then(function (response) {
+            return response.json();
+        })
+        .then(function (data) {
+            console.log(data)
+            $('currentCity').text(data);
+            console.log(data[0].lat);
+            console.log(data[0].lon);
+
+            var cityLat = data[0].lat;
+            var cityLong = data[0].lon;
+        
+            var latLonUrl = "http://api.openweathermap.org/data/2.5/forecast?appid=f0688e2fdade5250b4d094a2c4d7d063&lat="
+            var cLatLonUrl = latLonUrl.concat(cityLat + "&lon=" + cityLong)
+        
+            fetch(cLatLonUrl) // Fetch the 5 day forecast for the city searched using latitude and longitude
+                .then(function (response) {
+                    return response.json();
+                })
+                .then(function (data) {
+                    console.log(data)
+                });
+
+                
+        });
+
+
+    
+};
 
 // TODO: WHEN I search for a city 
 // THEN I am presented with current and future conditions for that city and that city is added to the search history
