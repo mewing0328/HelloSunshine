@@ -69,6 +69,8 @@ Demo of the functionality of buttons for saving and clearing all tasks.
 ## Credit: References and Tutorials Utilized
 * [YouTube Tutorial](https://www.youtube.com/watch?v=QEu8_5bYm-w): Utilized this video to understand how to edit the URL for api call so it looks for specific city.
 * [Search Medium](https://medium.com/@ecastille924/write-a-dynamic-fetch-call-with-concat-c523d6b11593): How to construct a dyamic fetch.
+* [Set and Get Local Storage](https://stackoverflow.com/questions/35963412/append-data-to-localstorage-object): How to push to one array.
+* [Add onto Local Storage](https://stackoverflow.com/questions/12162786/adding-new-objects-to-localstorage): Add to the object in local storage.
 * [OpenWeather](https://openweathermap.org/forecast5): Utilized API to call weather data
 * [jQuery](https://jquery.com/): Several tutorials for jQuery methods
 * [w3schools](https://www.w3schools.com/): Several tutorials for JavaScript tutorials

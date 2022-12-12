@@ -6,95 +6,155 @@ $('#day4').text(((dayjs()).add(4,'day')).format('ddd, MMM D'));
 $('#day5').text(((dayjs()).add(5,'day')).format('ddd, MMM D'));
 
 
+getCities();
 
-$('.searchBtn').click(function (e) { 
-    e.preventDefault();
-    fetchCity(); // run the fetch for all today and the 5 day forecast
-    saveCity(); //saves city in the seach list under the search bar
+    function getCities(){
+        var stored = JSON.parse(localStorage.getItem("Search-History"));
+        for (i = 0; i < stored.length; i++){
+
+            listItem = createLayer(stored[i])
+            appendLayer(listItem);
+
+            function createLayer () {
+                var button = $('<button></button>');
+                button.addClass("list-group-item");
+
+                var x = $('<input>');
+                x.attr("type", "text");
+            }
+
+            $("#cityList").append('<button class="list-group-item"></button>').text(stored[i]);
+            console.log(stored.length);
+            console.log(stored[i]);
+        };
+    };    
+
+$(document).ready(function () {
+
+    $('.searchBtn').click(function (e) { 
+        e.preventDefault();
+        fetchCity(); // run the fetch for all today and the 5 day forecast
+        saveCity(); //saves city in the seach list under the search bar
+    });
+
+    $('.list-group-item').click(function (e) { 
+        e.preventDefault();
+        $('.userInput').val() = $(this).val();
+        console.log(this);
+        fetchCity(); // run the fetch for all today and the 5 day forecast
+    });
+
+    function fetchCity() {
+        var userInputEl = $('.userInput').val();
+        $('#currentCity').text(userInputEl);
+
+        var appUrl = "http://api.openweathermap.org/geo/1.0/direct?appid=f0688e2fdade5250b4d094a2c4d7d063&q=";
+        var inputUrl = appUrl.concat(userInputEl);
+
+        fetch(inputUrl) // Fetch the lat and long of the city searched 
+            .then(function (response) {
+                return response.json();
+            })
+            .then(function (data) {
+                console.log(data)
+                console.log(data[0].lat);
+                console.log(data[0].lon);
+
+                var cityLat = data[0].lat;
+                var cityLong = data[0].lon;
+            
+                var latLonUrl = "http://api.openweathermap.org/data/2.5/forecast?appid=f0688e2fdade5250b4d094a2c4d7d063&lat="
+                var cLatLonUrl = latLonUrl.concat(cityLat + "&lon=" + cityLong)
+                
+                fetch(cLatLonUrl) // Fetch the 5 day forecast for the city searched using latitude and longitude
+                    .then(function (response) {
+                        return response.json();
+                    })
+                    .then(function (data) {
+
+                        console.log(data);
+                        console.log(data.list[0].main.temp);       
+                        
+                        // !! TO DO - Figure out a For Loop to repeat this using index
+                        //Today
+                        var farTemp = (((Math.floor((data.list[0].main.temp) - 273.15)) * 9) / 5) + 32;
+                        var wind = data.list[0].wind.speed;
+                        var humidity = data.list[0].main.humidity;
+                        $('#0Temp').text("Temperature: " + farTemp + "°F");
+                        $('#0Wind').text("Wind Speed: " + wind + " MPH");
+                        $('#0Humidity').text("Humidity: " + humidity + "%");
+
+                        //day1
+                        var farTemp = (((Math.floor((data.list[1].main.temp) - 273.15)) * 9) / 5) + 32;
+                        var wind = data.list[1].wind.speed;
+                        var humidity = data.list[1].main.humidity;
+                        $('#1Temp').text("Temperature: " + farTemp + "°F");
+                        $('#1Wind').text("Wind Speed: " + wind + " MPH");
+                        $('#1Humidity').text("Humidity: " + humidity + "%");
+
+                        //day2
+                        var farTemp = (((Math.floor((data.list[2].main.temp) - 273.15)) * 9) / 5) + 32;
+                        var wind = data.list[2].wind.speed;
+                        var humidity = data.list[2].main.humidity;
+                        $('#2Temp').text("Temperature: " + farTemp + "°F");
+                        $('#2Wind').text("Wind Speed: " + wind + " MPH");
+                        $('#2Humidity').text("Humidity: " + humidity + "%");
+
+                        //day3
+                        var farTemp = (((Math.floor((data.list[3].main.temp) - 273.15)) * 9) / 5) + 32;
+                        var wind = data.list[3].wind.speed;
+                        var humidity = data.list[3].main.humidity;
+                        $('#3Temp').text("Temperature: " + farTemp + "°F");
+                        $('#3Wind').text("Wind Speed: " + wind + " MPH");
+                        $('#3Humidity').text("Humidity: " + humidity + "%");
+
+                        //day4
+                        var farTemp = (((Math.floor((data.list[4].main.temp) - 273.15)) * 9) / 5) + 32;
+                        var wind = data.list[4].wind.speed;
+                        var humidity = data.list[4].main.humidity;
+                        $('#4Temp').text("Temperature: " + farTemp + "°F");
+                        $('#4Wind').text("Wind Speed: " + wind + " MPH");
+                        $('#4Humidity').text("Humidity: " + humidity + "%");
+
+                        //day5
+                        var farTemp = (((Math.floor((data.list[5].main.temp) - 273.15)) * 9) / 5) + 32;
+                        var wind = data.list[5].wind.speed;
+                        var humidity = data.list[5].main.humidity;
+                        $('#5Temp').text("Temperature: " + farTemp + "°F");
+                        $('#5Wind').text("Wind Speed: " + wind + " MPH");
+                        $('#5Humidity').text("Humidity: " + humidity + "%");
+                    });
+            });  
+        };
+        
+    function saveCity (){
+        var oldItems = JSON.parse(localStorage.getItem("Search-History")) || [];
+        var newItem = $('.userInput').val();
+    
+        oldItems.push(newItem);
+        localStorage.setItem("Search-History", JSON.stringify(oldItems));     
+    };
 });
 
-function fetchCity() {
-    var userInputEl = $('.userInput').val();
-    $('#currentCity').text(userInputEl);
+/*
+function saveCity (){
+    var oldItems = JSON.parse(localStorage.getItem("Search-History")) || [];
+    var newItem = $('.userInput').val();
 
-    var appUrl = "http://api.openweathermap.org/geo/1.0/direct?appid=f0688e2fdade5250b4d094a2c4d7d063&q=";
-    var inputUrl = appUrl.concat(userInputEl);
+    oldItems.push(newItem);
+    localStorage.setItem("Search-History", JSON.stringify(oldItems));
+    
+    var stored = JSON.parse(localStorage.getItem("Search-History"));
 
-    fetch(inputUrl) // Fetch the lat and long of the city searched 
-        .then(function (response) {
-            return response.json();
-        })
-        .then(function (data) {
-            console.log(data)
-            console.log(data[0].lat);
-            console.log(data[0].lon);
-
-            var cityLat = data[0].lat;
-            var cityLong = data[0].lon;
-        
-            var latLonUrl = "http://api.openweathermap.org/data/2.5/forecast?appid=f0688e2fdade5250b4d094a2c4d7d063&lat="
-            var cLatLonUrl = latLonUrl.concat(cityLat + "&lon=" + cityLong)
-            
-            fetch(cLatLonUrl) // Fetch the 5 day forecast for the city searched using latitude and longitude
-                .then(function (response) {
-                    return response.json();
-                })
-                .then(function (data) {
-
-                    console.log(data);
-                    console.log(data.list[0].main.temp);       
-                    
-                    // !! TO DO - Figure out a For Loop to repeat this using index
-                    //Today
-                    var farTemp = (((Math.floor((data.list[0].main.temp) - 273.15)) * 9) / 5) + 32;
-                    var wind = data.list[0].wind.speed;
-                    var humidity = data.list[0].main.humidity;
-                    $('#0Temp').text("Temperature: " + farTemp + "°F");
-                    $('#0Wind').text("Wind Speed: " + wind + " MPH");
-                    $('#0Humidity').text("Humidity: " + humidity + "%");
-
-                    //day1
-                    var farTemp = (((Math.floor((data.list[1].main.temp) - 273.15)) * 9) / 5) + 32;
-                    var wind = data.list[1].wind.speed;
-                    var humidity = data.list[1].main.humidity;
-                    $('#1Temp').text("Temperature: " + farTemp + "°F");
-                    $('#1Wind').text("Wind Speed: " + wind + " MPH");
-                    $('#1Humidity').text("Humidity: " + humidity + "%");
-
-                    //day2
-                    var farTemp = (((Math.floor((data.list[2].main.temp) - 273.15)) * 9) / 5) + 32;
-                    var wind = data.list[2].wind.speed;
-                    var humidity = data.list[2].main.humidity;
-                    $('#2Temp').text("Temperature: " + farTemp + "°F");
-                    $('#2Wind').text("Wind Speed: " + wind + " MPH");
-                    $('#2Humidity').text("Humidity: " + humidity + "%");
-
-                    //day3
-                    var farTemp = (((Math.floor((data.list[3].main.temp) - 273.15)) * 9) / 5) + 32;
-                    var wind = data.list[3].wind.speed;
-                    var humidity = data.list[3].main.humidity;
-                    $('#3Temp').text("Temperature: " + farTemp + "°F");
-                    $('#3Wind').text("Wind Speed: " + wind + " MPH");
-                    $('#3Humidity').text("Humidity: " + humidity + "%");
-
-                    //day4
-                    var farTemp = (((Math.floor((data.list[4].main.temp) - 273.15)) * 9) / 5) + 32;
-                    var wind = data.list[4].wind.speed;
-                    var humidity = data.list[4].main.humidity;
-                    $('#4Temp').text("Temperature: " + farTemp + "°F");
-                    $('#4Wind').text("Wind Speed: " + wind + " MPH");
-                    $('#4Humidity').text("Humidity: " + humidity + "%");
-
-                    //day5
-                    var farTemp = (((Math.floor((data.list[5].main.temp) - 273.15)) * 9) / 5) + 32;
-                    var wind = data.list[5].wind.speed;
-                    var humidity = data.list[5].main.humidity;
-                    $('#5Temp').text("Temperature: " + farTemp + "°F");
-                    $('#5Wind').text("Wind Speed: " + wind + " MPH");
-                    $('#5Humidity').text("Humidity: " + humidity + "%");
-                });
-        });  
+    for (i = 0; i < stored.length; i++){
+        $("#cityList").append('<li class="list-group-item"></li>').text(stored[i]);
+        console.log(stored[i])
+    };
+    
 };
+*/
+
+
 
 // TODO: WHEN I search for a city 
 // THEN I am presented with current and future conditions for that city and that city is added to the search history
