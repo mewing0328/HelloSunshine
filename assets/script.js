@@ -11,21 +11,8 @@ getCities();
     function getCities(){
         var stored = JSON.parse(localStorage.getItem("Search-History"));
         for (i = 0; i < stored.length; i++){
-
-            listItem = createLayer(stored[i])
-            appendLayer(listItem);
-
-            function createLayer () {
-                var button = $('<button></button>');
-                button.addClass("list-group-item");
-
-                var x = $('<input>');
-                x.attr("type", "text");
-            }
-
-            $("#cityList").append('<button class="list-group-item"></button>').text(stored[i]);
-            console.log(stored.length);
-            console.log(stored[i]);
+                $("#cityList").append('<button class="list-group-item"></button>').text(stored[i]);
+                return;
         };
     };    
 
