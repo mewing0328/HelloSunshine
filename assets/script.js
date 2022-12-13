@@ -10,11 +10,23 @@ getCities();
 
     function getCities(){
         var stored = JSON.parse(localStorage.getItem("Search-History"));
+
         for (i = 0; i < stored.length; i++){
-                $("#cityList").append('<button class="list-group-item"></button>').text(stored[i]);
-                return;
+            var cityList = $("#cityList");
+            var newBtn = $('<button class="list-group-item"></button>');
+            newBtn.appendTo(cityList);
+            newBtn.text(stored[i]);
+
+            console.log(stored[i]);
+
+  
+
+
+            // $(this).text(stored[i]);
+
         };
     };    
+
 
 $(document).ready(function () {
 
@@ -119,9 +131,14 @@ $(document).ready(function () {
         var newItem = $('.userInput').val();
     
         oldItems.push(newItem);
+
+        //Remove duplicates
+
         localStorage.setItem("Search-History", JSON.stringify(oldItems));     
     };
 });
+
+
 
 /*
 function saveCity (){
@@ -167,3 +184,8 @@ function saveCity (){
 // * Uses the OpenWeather API to retrieve weather data.
 // * Uses `localStorage` to store persistent data.
 
+        /*
+        $.each(collection, function (indexInArray, valueOfElement) { 
+             
+        });
+        */
