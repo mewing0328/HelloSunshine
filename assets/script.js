@@ -7,7 +7,6 @@ $('#day5').text(((dayjs()).add(5,'day')).format('ddd, MMM D'));
 
 
 getCities();
-
     function getCities(){
         var stored = JSON.parse(localStorage.getItem("Search-History"));
 
@@ -16,14 +15,6 @@ getCities();
             var newBtn = $('<button class="list-group-item"></button>');
             newBtn.appendTo(cityList);
             newBtn.text(stored[i]);
-
-            console.log(stored[i]);
-
-  
-
-
-            // $(this).text(stored[i]);
-
         };
     };    
 
@@ -139,24 +130,9 @@ $(document).ready(function () {
 });
 
 
-
-/*
-function saveCity (){
-    var oldItems = JSON.parse(localStorage.getItem("Search-History")) || [];
-    var newItem = $('.userInput').val();
-
-    oldItems.push(newItem);
-    localStorage.setItem("Search-History", JSON.stringify(oldItems));
-    
-    var stored = JSON.parse(localStorage.getItem("Search-History"));
-
-    for (i = 0; i < stored.length; i++){
-        $("#cityList").append('<li class="list-group-item"></li>').text(stored[i]);
-        console.log(stored[i])
-    };
-    
-};
-*/
+// TO DO - Remove duplicate saved cities
+// TO DO - Create a clear all searches button
+// TO DO - Buttons for prev searches need to be clickable and run as the input 
 
 
 
