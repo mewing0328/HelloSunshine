@@ -8,11 +8,11 @@ $('#day5').text(((dayjs()).add(5,'day')).format('ddd, MMM D'));
 
 getCities();
     function getCities(){
-        var stored = JSON.parse(localStorage.getItem("Search-History"));
+        var stored = JSON.parse(localStorage.getItem("Search-History")) || [];
 
         for (i = 0; i < stored.length; i++){
             var cityList = $("#cityList");
-            var newBtn = $('<button class="list-group-item"></button>');
+            var newBtn = $('<button class="list-group-item citySearched"></button>');
             newBtn.appendTo(cityList);
             newBtn.text(stored[i]);
         };
@@ -27,10 +27,8 @@ $(document).ready(function () {
         saveCity(); //saves city in the seach list under the search bar
     });
 
-    $('.list-group-item').click(function (e) { 
+    $('.citySearched').click(function (e) { 
         e.preventDefault();
-        $('.userInput').val() = $(this).val();
-        console.log(this);
         fetchCity(); // run the fetch for all today and the 5 day forecast
     });
 
@@ -124,44 +122,40 @@ $(document).ready(function () {
         oldItems.push(newItem);
 
         //Remove duplicates
-
-        localStorage.setItem("Search-History", JSON.stringify(oldItems));     
+        var uniqueItems = [...new Set(oldItems)];
+        
+        console.log(uniqueItems);
+        localStorage.setItem("Search-History", JSON.stringify(uniqueItems));  
     };
 });
 
+$('.clearBtn').click(function (e) { 
+    e.preventDefault();
+    localStorage.clear();
+    location.reload();
+});
 
-// TO DO - Remove duplicate saved cities
-// TO DO - Create a clear all searches button
+$('.newBtn').click(function (e) { 
+    e.preventDefault();
+    location.reload();
+});
+
+
+
 // TO DO - Buttons for prev searches need to be clickable and run as the input 
-
-
 
 // TODO: WHEN I search for a city 
 // THEN I am presented with current and future conditions for that city and that city is added to the search history
 
-
-
 // TODO: WHEN I view current weather conditions for that city 
 // THEN I am presented with the city name, the date, an icon representation of weather conditions, the temperature, the humidity, and the wind speed
-
 
 // TODO: WHEN I view future weather conditions for that city 
 // THEN I am presented with a 5-day forecast that displays the date, an icon representation of weather conditions, the temperature, the wind speed, and the humidity
 
-
-
 // TODO: WHEN I click on a city in the search history 
 // THEN I am again presented with current and future conditions for that city
-
-
-
 
 // TODO: Satisfies all of the above acceptance criteria plus the following:
 // * Uses the OpenWeather API to retrieve weather data.
 // * Uses `localStorage` to store persistent data.
-
-        /*
-        $.each(collection, function (indexInArray, valueOfElement) { 
-             
-        });
-        */

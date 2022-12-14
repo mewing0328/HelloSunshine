@@ -71,6 +71,7 @@ Demo of the functionality of buttons for saving and clearing all tasks.
 * [Search Medium](https://medium.com/@ecastille924/write-a-dynamic-fetch-call-with-concat-c523d6b11593): How to construct a dyamic fetch.
 * [Set and Get Local Storage](https://stackoverflow.com/questions/35963412/append-data-to-localstorage-object): How to push to one array.
 * [Add onto Local Storage](https://stackoverflow.com/questions/12162786/adding-new-objects-to-localstorage): Add to the object in local storage.
+* [Dev To website](https://dev.to/soyleninjs/3-ways-to-remove-duplicates-in-an-array-in-javascript-259o): Remove duplicates in an array
 * [OpenWeather](https://openweathermap.org/forecast5): Utilized API to call weather data
 * [jQuery](https://jquery.com/): Several tutorials for jQuery methods
 * [w3schools](https://www.w3schools.com/): Several tutorials for JavaScript tutorials
