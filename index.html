@@ -13,27 +13,27 @@
   <title>HelloSunshine</title>
 </head>
 
-<body class="container-fluid">
-
-  <header class="container-fluid">
-    <nav class="navbar bg-light">
+<body class="container-fluid bg">
+    <!-- <img src="./assets/images/sunshine.jpg" class="img-fluid" alt="A golf course with lots of sunshine."> -->
+    <header class="container-fluid">
+    <nav class="navbar">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">
+            <h1 class="text-light">
             Hello Sunshine!
-            </a>
+            </h1>
         </div>
     </nav>
-    <p>Search for a city to display the 5-Day Forecast.</p>
+    <h3 class="text-light">Type a city in the Seach field. The weather details will display for today and the next 5 days. Click on a previously searched city to view the latest weather information. </h3>
   </header>
   
   <main class="">
 
-    <div class = "left" style="width: 25vw">
+    <div class = "left" style="width: 20vw">
 
-        <nav class="navbar bg-light">
+        <nav class="bg-light">
             <div class="">
                 <form class="d-flex" role="search">
-                <input class="form-control me-2 userInput" type="search" placeholder="Search" aria-label="Search">
+                <input class="form-control me-2 userInput h3" type="search" placeholder="Search" aria-label="Search">
                 <button class="btn btn-outline-success searchBtn" type="submit">Search</button>
             </form>
             </div>
@@ -50,10 +50,10 @@
 
     <div class = "right container-fluid">
 
-        <div class="card" style="width: 75vw">
-            <h5 id="currentCity" class="card-header">Featured</h5>
+        <div class="card" style="width: 80vw">
+            <h5 id="currentCity" class="card-header h1">Featured</h5>
             <div class="card-body">
-            <h5 id="today" class="card-title"></h5>
+            <h5 id="today" class="card-title h2"></h5>
             <p class="navbar-brand"></p>
             <p id="0Temp" class="card-text">Temperature</p>
             <p id="0Wind" class="card-text">Wind</p>
@@ -64,10 +64,10 @@
 
         <div class = "right-bottom container-fluid">
 
-            <div class="card container-fluid" style="width: 15vw">
+            <div class="card container-fluid" style="width: 16vw">
                 <!--<img src="..." class="card-img-top" alt="...">-->
                 <div class="card-body">
-                    <h5 id = "day1" class="card-title">Card title</h5>
+                    <h5 id = "day1" class="card-title"></h5>
                 </div>
                 <ul class="list-group list-group-flush">
                     <li id="1Temp" class="list-group-item">Temp</li>
@@ -76,7 +76,7 @@
                 </ul>
             </div>
 
-            <div class="card container-fluid" style="width: 15vw">
+            <div class="card container-fluid" style="width: 16vw">
                 <!--<img src="..." class="card-img-top" alt="...">-->
                 <div class="card-body">
                     <h5 id = "day2" class="card-title">Card title</h5>
@@ -88,7 +88,7 @@
                 </ul>
             </div>
 
-            <div class="card container-fluid" style="width: 15vw">
+            <div class="card container-fluid" style="width: 16vw">
                 <!--<img src="..." class="card-img-top" alt="...">-->
                 <div class="card-body">
                     <h5 id = "day3" class="card-title">Card title</h5>
@@ -100,7 +100,7 @@
                 </ul>
             </div>
 
-            <div class="card container-fluid" style="width: 15vw">
+            <div class="card container-fluid" style="width: 16vw">
                 <!--<img src="..." class="card-img-top" alt="...">-->
                 <div class="card-body">
                     <h5 id = "day4" class="card-title">Card title</h5>
@@ -112,7 +112,7 @@
                 </ul>
             </div>
 
-            <div class="card container-fluid" style="width: 15vw">
+            <div class="card container-fluid" style="width: 16vw">
                 <!--<img src="..." class="card-img-top" alt="...">-->
                 <div class="card-body">
                     <h5 id = "day5" class="card-title">Card title</h5>

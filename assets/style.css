@@ -1,7 +1,22 @@
+body {
+    height: 100vh;
+}
+
+.bg {
+    background-image: url(./images/sunshine.jpg);
+    height: 100vh;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
 
 main {
     display: flex;
     flex-direction: row; 
+}
+
+.card-text{
+    font-size: 1rem;
 }
 
 .left{
