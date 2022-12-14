@@ -1,73 +1,55 @@
 # HelloSunshine
-Application that displays 5-Day Forecast for selected cities.
+An application that displays a 5-Day Forecast for selected cities.
 <br></br>
 
 ## Description
 This application provides an end-user with the ability to search for a city and find out the 5-day weather forecast.
 
 ### Usage
-An application for organizing mulitple cities and their weather data on one page.
-For example, this application may be used by a traveler who wants to see the weather outlook for multiple cities so that (s)he can plan a trip accordingly.
+An application for organizing multiple cities and their weather data on one page.
+For example, this application may be used by a golfer who wants to see the weather outlook for multiple cities so that (s)he can plan a golf day accordingly.
 
 ## My Links
-[My Deployed Application Site](#)
+[My Deployed Application Site](https://mewing0328.github.io/HelloSunshine/)
 
-[GitHub Repository](#)
+[GitHub Repository](https://github.com/mewing0328/HelloSunshine)
 
 
 ### Tasks Completed 
 ```
-HTML: 
+HTML & CSS: Used Bootstrap to build out the HTML elements. I utilized CSS to modify the Bootstrap foundation for my styling preference.
 
-CSS & JavaScript:
-
-GIVEN a weather dashboard with form inputs
-WHEN I search for a city
-THEN I am presented with current and future conditions for that city and that city is added to the search history
-WHEN I view current weather conditions for that city
-THEN I am presented with the city name, the date, an icon representation of weather conditions, the temperature, the humidity, and the wind speed
-WHEN I view future weather conditions for that city
-THEN I am presented with a 5-day forecast that displays the date, an icon representation of weather conditions, the temperature, the wind speed, and the humidity
-WHEN I click on a city in the search history
-THEN I am again presented with current and future conditions for that city
-
-* Satisfies all of the above acceptance criteria plus the following:
-
-    * Uses the OpenWeather API to retrieve weather data.
-
-    * Uses `localStorage` to store persistent data.
+JavaScript: Used JQuery in my code and accessed openweathermap.org for utilizing an API.
+* Provided search capabilities to present current and future conditions for that city and that city is added to the search history
+* Displayed the current date and the next 5 days for the weather dashboard
+* Enabled a search history feature for the dashboard for previously searched cities
+* Used the OpenWeather API to retrieve weather data
+* Used `localStorage` to store persistent data
 ```
 ## Demonstration
 ### GIFS
-#### CalenDaily Demo Below: 
+#### HelloSunshine Demo Below: 
 Demo of adding items, deleting items, and colors changing depending on the current hour.
 Demo of the functionality of buttons for saving and clearing all tasks.
 
-#### CalenDaily Demo Below:  
+#### HelloSunshine Demo Below:  
     For this GIF demo, I demonstrate the following:
-    - Save buttons are functional.
-    - Text area is editable.
-    - End-user can save tasks.
-    - The application automatically reloads.
-    - After reloading, objects in the local storage are displayed on the browser.
-    - Alerts when to dos items are successfully saved in the local storage.
-    - The current date is displayed.
-    - The hours are colored depending on whether the hour was in the past, is in the present, or is in the future.
-    - The local storage clears an object when the user deletes and saves the hour row.
-    - The user can clear all tasks in local storage by clicking the clear all tasks button.
+    - Search functionality and presentation of data
+    - API data on the dashboard as per city specified and current date plus the next 5 days
+    - Local storage search history displayed as button options
 
 <img src=./assets/images/demo.gif style="width:40rem">
 <br></br>
 <br></br>
 
 
-### CalenDaily Screenshots
-<img src=./assets/images/screenshot.jpg style="width:40rem">
+### HelloSunshine Screenshots
+<img src=./assets/images/screenshot.png style="width:40rem">
 
 <br><br>
 
 ## Credit: References and Tutorials Utilized
-* [YouTube Tutorial](https://www.youtube.com/watch?v=QEu8_5bYm-w): Utilized this video to understand how to edit the URL for api call so it looks for specific city.
+* [YouTube Tutorial](https://www.youtube.com/watch?v=QEu8_5bYm-w): Utilized this video to understand how to edit the URL for API call so it looks for a specific city.
 * [Search Medium](https://medium.com/@ecastille924/write-a-dynamic-fetch-call-with-concat-c523d6b11593): How to construct a dyamic fetch.
 * [Set and Get Local Storage](https://stackoverflow.com/questions/35963412/append-data-to-localstorage-object): How to push to one array.
 * [Add onto Local Storage](https://stackoverflow.com/questions/12162786/adding-new-objects-to-localstorage): Add to the object in local storage.
