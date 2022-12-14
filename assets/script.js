@@ -24,15 +24,17 @@ $(document).ready(function () {
 
     $('.searchBtn').click(function (e) { 
         e.preventDefault();
+ 
         fetchCity(); // run the fetch for all today and the 5 day forecast
         saveCity(); //saves city in the seach list under the search bar
     });
 
     $('.citySearched').click(function (e) { 
         e.preventDefault();
-        var btnValue = $(this).attr("value"); // Value is the name of the city clicked
+        var userInputEl = $(this).attr("value"); // Value is the name of the city clicked
+        $('.userInput').val(userInputEl); // Add a value attribute of the name of the saved city
+        fetchCity(); // run the fetch for all today and the 5 day forecast
         // $('.userInput').val(btnValue);
-        console.log(btnValue);
         // fetchCity(); // run the fetch for all today and the 5 day forecast
     });
 
