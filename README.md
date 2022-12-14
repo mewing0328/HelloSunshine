@@ -72,6 +72,7 @@ Demo of the functionality of buttons for saving and clearing all tasks.
 * [Set and Get Local Storage](https://stackoverflow.com/questions/35963412/append-data-to-localstorage-object): How to push to one array.
 * [Add onto Local Storage](https://stackoverflow.com/questions/12162786/adding-new-objects-to-localstorage): Add to the object in local storage.
 * [Dev To website](https://dev.to/soyleninjs/3-ways-to-remove-duplicates-in-an-array-in-javascript-259o): Remove duplicates in an array
+* [stackOverflow](https://stackoverflow.com/questions/487056/retrieve-button-value-with-jquery): Getting the value of a button that is clicked.
 * [OpenWeather](https://openweathermap.org/forecast5): Utilized API to call weather data
 * [jQuery](https://jquery.com/): Several tutorials for jQuery methods
 * [w3schools](https://www.w3schools.com/): Several tutorials for JavaScript tutorials

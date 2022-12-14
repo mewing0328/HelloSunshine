@@ -15,6 +15,7 @@ getCities();
             var newBtn = $('<button class="list-group-item citySearched"></button>');
             newBtn.appendTo(cityList);
             newBtn.text(stored[i]);
+            newBtn.val(stored[i]);
         };
     };    
 
@@ -29,7 +30,10 @@ $(document).ready(function () {
 
     $('.citySearched').click(function (e) { 
         e.preventDefault();
-        fetchCity(); // run the fetch for all today and the 5 day forecast
+        var btnValue = $(this).attr("value"); // Value is the name of the city clicked
+        // $('.userInput').val(btnValue);
+        console.log(btnValue);
+        // fetchCity(); // run the fetch for all today and the 5 day forecast
     });
 
     function fetchCity() {
