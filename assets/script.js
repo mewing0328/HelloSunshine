@@ -52,7 +52,7 @@ $(document).ready(function () {
         $('#currentCity').text(userInputEl);
 
         // Concat the api link for openweathermap by using the input variable provided by the user
-        var appUrl = "http://api.openweathermap.org/geo/1.0/direct?appid=f0688e2fdade5250b4d094a2c4d7d063&q=";
+        var appUrl = "https://api.openweathermap.org/geo/1.0/direct?appid=f0688e2fdade5250b4d094a2c4d7d063&q=";
         var inputUrl = appUrl.concat(userInputEl);
 
         // Fetch the latitude and longitude of the city searched 
@@ -65,7 +65,7 @@ $(document).ready(function () {
                 var cityLong = data[0].lon;
                 
                 // Use the latitude and longitude to obtain the weather object from the api
-                var latLonUrl = "http://api.openweathermap.org/data/2.5/forecast?appid=f0688e2fdade5250b4d094a2c4d7d063&lat="
+                var latLonUrl = "https://api.openweathermap.org/data/2.5/forecast?appid=f0688e2fdade5250b4d094a2c4d7d063&lat="
                 var cLatLonUrl = latLonUrl.concat(cityLat + "&lon=" + cityLong)
                 
                 // ACCEPTANCE CRITERIA: WHEN I view future weather conditions for that city THEN I am presented with a 5-day forecast that displays the date, an icon representation of weather conditions, the temperature, the wind speed, and the humidity
