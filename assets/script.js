@@ -61,6 +61,7 @@ $(document).ready(function () {
                 return response.json();
             })
             .then(function (data) {
+                console.log(data);
                 var cityLat = data[0].lat;
                 var cityLong = data[0].lon;
                 
@@ -74,54 +75,67 @@ $(document).ready(function () {
                         return response.json();
                     })
                     .then(function (data) {
+                        console.log(data);
                         //Today
                         var farTemp = (((Math.floor((data.list[0].main.temp) - 273.15)) * 9) / 5) + 32; // Convert from Kelvin to Celsius to Farenheit
                         var wind = data.list[0].wind.speed;
                         var humidity = data.list[0].main.humidity;
+                        var icon = data.list[0].weather[0].icon;
                         // Replace the text for today - all subsequent days have the same code structure
                         $('#0Temp').text("Temperature: " + farTemp + "°F");
                         $('#0Wind').text("Wind Speed: " + wind + " MPH");
                         $('#0Humidity').text("Humidity: " + humidity + "%");
+                        $('#0icon').attr("src", "http://openweathermap.org/img/wn/" + icon + "@2x.png");
 
                         //day1
                         var farTemp = (((Math.floor((data.list[1].main.temp) - 273.15)) * 9) / 5) + 32;
                         var wind = data.list[1].wind.speed;
                         var humidity = data.list[1].main.humidity;
+                        var icon = data.list[1].weather[0].icon;
                         $('#1Temp').text("Temperature: " + farTemp + "°F");
                         $('#1Wind').text("Wind Speed: " + wind + " MPH");
                         $('#1Humidity').text("Humidity: " + humidity + "%");
+                        $('#1icon').attr("src", "http://openweathermap.org/img/wn/" + icon + "@2x.png");
 
                         //day2
                         var farTemp = (((Math.floor((data.list[2].main.temp) - 273.15)) * 9) / 5) + 32;
                         var wind = data.list[2].wind.speed;
                         var humidity = data.list[2].main.humidity;
+                        var icon = data.list[2].weather[0].icon;
                         $('#2Temp').text("Temperature: " + farTemp + "°F");
                         $('#2Wind').text("Wind Speed: " + wind + " MPH");
                         $('#2Humidity').text("Humidity: " + humidity + "%");
+                        $('#2icon').attr("src", "http://openweathermap.org/img/wn/" + icon + "@2x.png");
 
                         //day3
                         var farTemp = (((Math.floor((data.list[3].main.temp) - 273.15)) * 9) / 5) + 32;
                         var wind = data.list[3].wind.speed;
                         var humidity = data.list[3].main.humidity;
+                        var icon = data.list[3].weather[0].icon;
                         $('#3Temp').text("Temperature: " + farTemp + "°F");
                         $('#3Wind').text("Wind Speed: " + wind + " MPH");
                         $('#3Humidity').text("Humidity: " + humidity + "%");
+                        $('#3icon').attr("src", "http://openweathermap.org/img/wn/" + icon + "@2x.png");
 
                         //day4
                         var farTemp = (((Math.floor((data.list[4].main.temp) - 273.15)) * 9) / 5) + 32;
                         var wind = data.list[4].wind.speed;
                         var humidity = data.list[4].main.humidity;
+                        var icon = data.list[4].weather[0].icon;
                         $('#4Temp').text("Temperature: " + farTemp + "°F");
                         $('#4Wind').text("Wind Speed: " + wind + " MPH");
                         $('#4Humidity').text("Humidity: " + humidity + "%");
+                        $('#4icon').attr("src", "http://openweathermap.org/img/wn/" + icon + "@2x.png");
 
                         //day5
                         var farTemp = (((Math.floor((data.list[5].main.temp) - 273.15)) * 9) / 5) + 32;
                         var wind = data.list[5].wind.speed;
                         var humidity = data.list[5].main.humidity;
+                        var icon = data.list[5].weather[0].icon;
                         $('#5Temp').text("Temperature: " + farTemp + "°F");
                         $('#5Wind').text("Wind Speed: " + wind + " MPH");
                         $('#5Humidity').text("Humidity: " + humidity + "%");
+                        $('#5icon').attr("src", "http://openweathermap.org/img/wn/" + icon + "@2x.png");
                     });
             });  
         };
